@@ -13,7 +13,7 @@ from scipy.stats import kurtosis
 #############################################################################################
 
 # change streamlit layout
-st.set_page_config(layout="centered")
+st.set_page_config(layout="wide")
 
 st.title("Streamlit Roughness Calculator")
 
@@ -275,7 +275,7 @@ with tab2:
         st.text(f"{twod_title}")
         # 2d image generation
         fig = px.imshow(data, zmin=graph_min, zmax=graph_max, color_continuous_scale='Viridis', title=twod_title,
-                         width=800, height=800)
+                         width=1000, height=1000)
         st.plotly_chart(fig)
     else:
         st.write("No data loaded for 2D image")
@@ -285,7 +285,7 @@ with tab3:
         st.header("3D")
         # generate Topographical 3D Surface Plot using plotly
         fig = go.Figure(data=[go.Surface(z=smoothed_data, colorscale='Viridis')])   
-        fig.update_layout(title='3D Topographical Surface Plot', autosize=False, width=800, height=800)
+        fig.update_layout(title='3D Topographical Surface Plot', autosize=False, width=1000, height=1000)
         st.plotly_chart(fig)
 
 
